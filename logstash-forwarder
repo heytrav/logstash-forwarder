@@ -1,0 +1,15 @@
+{
+  "network": {
+    "servers": ["docker-elk:5004"],
+    "timeout": 15,
+    "ssl ca": "/usr/local/d8o/logstash/certs/logstash-forwarder.crt"
+  },
+  "files": [
+    {
+      "paths": [
+        "/var/log/syslog"
+      ],
+      "fields": {"type": "syslog"}
+    }
+  ]
+}

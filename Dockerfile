@@ -3,16 +3,14 @@ FROM ubuntu:trusty
 RUN  apt-get  update && \
   apt-get -qy install -y \
     supervisor \
-    rsyslog 
+    rsyslog
 
 ADD logstash-forwarder /opt/logstash-forwarder/
 
-
-
 RUN sed -i 's/$ActionFileDefaultTemplate/#$ActionFileDefaultTemplate/' /etc/rsyslog.conf
 ADD supervisor/ /etc/supervisor/conf.d/
-RUN chmod +x logstash-forwarder
-ADD logstash-forwarder /etc/
+RUN chmod +x logstash-forwarder.conf
+ADD logstash-forwarder.conf /etc/
 
 EXPOSE 514/udp
 EXPOSE 10514

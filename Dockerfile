@@ -9,7 +9,6 @@ ADD logstash-forwarder /opt/
 
 RUN sed -i 's/$ActionFileDefaultTemplate/#$ActionFileDefaultTemplate/' /etc/rsyslog.conf
 ADD supervisor/ /etc/supervisor/conf.d/
-RUN chmod +x logstash-forwarder.conf
 ADD logstash-forwarder.conf /etc/
 
 EXPOSE 514/udp

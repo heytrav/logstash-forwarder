@@ -1,10 +1,9 @@
 #!/bin/sh
 
 : ${LUMBERJACK_HOST:=devel-iwmn.com}
-sed -i  's/LUMBERJACK_SERVICE_HOST/'"$LUMBERJACK_SERVICE_HOST"'/g' /etc/logstash-forwarder
-sed -i  's/LUMBERJACK_SERVICE_PORT/'"$LUMBERJACK_SERVICE_PORT"'/g' /etc/logstash-forwarder
-sed -i  's/LUMBERJACK_HOST/'"$LUMBERJACK_HOST"'/g' /etc/logstash-forwarder
-: ${API_ENV:='devel'}
+sed -i  's/LUMBERJACK_SERVICE_HOST/'"$LUMBERJACK_SERVICE_HOST"'/g' /etc/logstash-forwarder.conf
+sed -i  's/LUMBERJACK_SERVICE_PORT/'"$LUMBERJACK_SERVICE_PORT"'/g' /etc/logstash-forwarder.conf
+sed -i  's/LUMBERJACK_HOST/'"$LUMBERJACK_HOST"'/g' /etc/logstash-forwarder.conf
 
 
 if [ "$INTERACTIVE" = 1 ]; then

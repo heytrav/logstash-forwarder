@@ -5,7 +5,7 @@ RUN  apt-get  update && \
     supervisor \
     rsyslog
 
-ADD logstash-forwarder /opt/logstash-forwarder/
+ADD logstash-forwarder /opt/
 
 RUN sed -i 's/$ActionFileDefaultTemplate/#$ActionFileDefaultTemplate/' /etc/rsyslog.conf
 ADD supervisor/ /etc/supervisor/conf.d/

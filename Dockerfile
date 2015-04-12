@@ -3,7 +3,8 @@ FROM ubuntu:trusty
 RUN  apt-get  update && \
   apt-get -qy install -y \
     supervisor \
-    rsyslog
+    rsyslog && \
+    apt-get clean
 
 ADD logstash-forwarder /opt/
 
@@ -13,7 +14,7 @@ ADD logstash-forwarder.conf /etc/
 
 EXPOSE 514/udp
 EXPOSE 10514
-WORKDIR /usr/local/logstash-forwarder
-ADD docker_start.sh /usr/local/logstash-forwarder
+WORKDIR /usr/local
+ADD docker_start.sh /usr/local/
 
 CMD ["./docker_start.sh"]

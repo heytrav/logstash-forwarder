@@ -8,6 +8,8 @@ RUN  apt-get  update && \
 
 ADD logstash-forwarder /opt/
 
+RUN sed -i 's/#$ModLoad imudp/$ModLoad imudp/' /etc/rsyslog.conf
+RUN sed -i 's/#$UDPServerRun 514/$UDPServerRun 514/' /etc/rsyslog.conf
 RUN sed -i 's/$ActionFileDefaultTemplate/#$ActionFileDefaultTemplate/' /etc/rsyslog.conf
 ADD supervisor/ /etc/supervisor/conf.d/
 ADD logstash-forwarder.conf /etc/

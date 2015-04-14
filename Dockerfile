@@ -14,6 +14,7 @@ RUN sed -i 's/$ActionFileDefaultTemplate/#$ActionFileDefaultTemplate/' /etc/rsys
 ADD supervisor/ /etc/supervisor/conf.d/
 ADD logstash-forwarder.conf /etc/
 ADD cron.hourly /etc/cron.hourly
+ADD rsyslog.d /etc/rsyslog.d
 
 EXPOSE 514/udp
 EXPOSE 10514

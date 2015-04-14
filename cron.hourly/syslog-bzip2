@@ -1,1 +1,1 @@
-find /var/log/syslog/2015 -type f -mtime +1  -name "*.log" -exec bzip2 '{}' \;
+find /var/log/syslog/ -type f -mtime +1  -name "*.log" -exec bzip2 '{}' \;

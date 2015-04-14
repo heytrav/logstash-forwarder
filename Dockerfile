@@ -15,6 +15,7 @@ RUN echo '$template DailyPerHostLogs,"/var/log/syslog/%$YEAR%/%$MONTH%/%$DAY%/%H
 RUN echo '*.* -?DailyPerHostLogs' >> /etc/rsyslog.conf
 ADD supervisor/ /etc/supervisor/conf.d/
 ADD logstash-forwarder.conf /etc/
+ADD cron.hourly /etc/cron.hourly
 
 EXPOSE 514/udp
 EXPOSE 10514
